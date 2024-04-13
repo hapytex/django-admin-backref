@@ -1,5 +1,10 @@
 # django-admin-backref
 
+[![PyPi version](https://badgen.net/pypi/v/django-admin-backref/)](https://pypi.python.org/pypi/django-admin-backref/)
+[![Documentation Status](https://readthedocs.org/projects/django-admin-backref/badge/?version=latest)](http://django-admin-backref.readthedocs.io/?badge=latest)
+[![PyPi license](https://badgen.net/pypi/license/django-admin-backref/)](https://pypi.python.org/pypi/django-admin-backref/)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 Generate admin URLs through the models.
 
 This package automatically attaches an `.admin_links` object to all models with a registered `ModelAdmin` (for the default admin site).
