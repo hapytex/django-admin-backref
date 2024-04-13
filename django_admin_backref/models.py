@@ -23,10 +23,11 @@ class AdminLink:
         nprefix = len(model_prefix)
         extras = list(super().__dir__())
         for url in self.modeladmin.urls:
+            print((include_object_id, url.name))
             if (
                 url.name
-                and url.name.statswith(model_prefix)
-                and (not include_object_id or "object_id" in url.pattern.converters)
+                and url.name.startswith(model_prefix)
+                and (include_object_id or not url.pattern.converters)
             ):
                 base_name = url.name[nprefix:]
                 extras.append(base_name)

@@ -9,6 +9,11 @@ class DjangoAdminBackrefConfig(AppConfig):
         from django.contrib.admin import site
         from .models import AdminSiteLinks
 
-        for model in site._registry:
+        try:
+            registry = site._registry
+        except LookupError:
+            registry = ()
+
+        for model in registry:
             if not hasattr(model, "admin_links"):
                 model.admin_links = AdminSiteLinks()
