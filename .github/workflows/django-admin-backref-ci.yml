@@ -1,4 +1,4 @@
-name: django-enforced-choices CI
+name: django-admin-backref CI
 on: push
 jobs:
   black:
