@@ -36,7 +36,10 @@ Next you can add the `django_admin_backref` to the `INSTALLED_APPS`:
 
 INSTALLED_APPS = [
     # …,
+    'django.contrib.admin',
+    # …,
     'django_admin_backref',
+    # …
 ]
 ```
 
@@ -52,3 +55,5 @@ The `.admin_links` will generate an `AdminLink` object. For each view name, it t
  - <code>.get_<i>name</i>_label()</code>: a *safe* string that contains an `<a href="">` to that admin URL, and uses the label of the object as a method.
 
 For a simple model and for a simple admin, so without additional packages, for the class we have `.add`, `.changelist`, for *instances* it also contains `.change`, `.delete` and `.history`. Additional packages like `django-import-export` or special `ModelAdmin`s like the one for the `User` model introduce additional paths, like for example `.import` and `.password_change`.
+
+The label is determined by first calling `.get_label()` on the model object, if that does not work it takes the `str(…)` of the instance or model class. Finally if these raise an error, it will take the empty string.
